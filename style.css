@@ -1,0 +1,188 @@
+/* 1. Design tokens and base styles */
+:root {
+  --cream: #F5F0E8;
+  --brown: #493C32;
+  --taupe: #A88D70;
+  --beige: #E7DED2;
+  --white: #FFFFFF;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Lato", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--brown);
+  font-family: var(--sans);
+  line-height: 1.65;
+}
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+.section-wrap { width: min(1080px, calc(100% - 48px)); margin-inline: auto; }
+.eyebrow, .card-kicker {
+  margin: 0 0 12px;
+  color: var(--taupe);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+h1, h2, h3 { margin-top: 0; font-family: var(--serif); font-weight: 600; line-height: 1.05; }
+h2 { margin-bottom: 0; font-size: clamp(2.2rem, 5vw, 3.5rem); }
+h3 { margin-bottom: 14px; font-size: 1.65rem; }
+
+/* 2. Header and navigation */
+.site-header {
+  width: min(1180px, calc(100% - 48px));
+  min-height: 82px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.wordmark { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; text-decoration: none; }
+.wordmark span { color: var(--taupe); }
+nav { display: flex; align-items: center; gap: clamp(14px, 2.5vw, 32px); }
+nav a { font-size: .82rem; text-decoration: none; }
+nav a:hover, .site-footer a:hover { color: var(--taupe); }
+.nav-resume { border-bottom: 1px solid var(--taupe); padding-bottom: 4px; }
+
+/* 3. Hero */
+.hero {
+  min-height: 590px;
+  padding-top: 112px;
+  padding-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.hero h1 { margin: 0; font-size: clamp(4.4rem, 12vw, 8.8rem); letter-spacing: -.045em; }
+.hero-subtitle { margin: 10px 0 0; font-size: 1rem; letter-spacing: .08em; }
+.hero-subtitle span { color: var(--taupe); padding: 0 7px; }
+.hero-note { margin: 22px 0 26px; color: #75685D; }
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.button {
+  display: inline-block;
+  padding: 13px 21px;
+  border: 1px solid var(--taupe);
+  font-size: .82rem;
+  text-decoration: none;
+}
+.button-filled { background: var(--brown); border-color: var(--brown); color: var(--cream); }
+.button-outline { color: var(--brown); }
+.button:hover { background: var(--taupe); border-color: var(--taupe); color: var(--white); }
+.scroll-link { margin-top: 72px; color: #75685D; font-size: .72rem; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; }
+.scroll-link span { color: var(--taupe); }
+
+/* 4. Main content sections */
+.section-block { padding-top: 78px; padding-bottom: 78px; border-top: 1px solid #DCD2C6; }
+.section-heading { margin-bottom: 32px; }
+.project-card { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 48px; align-items: center; }
+.project-image { overflow: hidden; background: var(--beige); }
+.project-image img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.project-copy { padding: 12px 0; }
+.project-intro { max-width: 420px; color: #75685D; }
+.detail-list { margin: 18px 0 0; padding-left: 18px; }
+.detail-list li { margin: 8px 0; padding-left: 4px; }
+.detail-list li::marker { color: var(--taupe); }
+.experience-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.experience-card { padding: 30px; background: var(--beige); }
+.experience-card .detail-list { margin-top: 12px; }
+.education-list { border-top: 1px solid #DCD2C6; }
+.education-item { padding: 22px 0; display: flex; justify-content: space-between; gap: 20px; border-bottom: 1px solid #DCD2C6; }
+.education-item h3 { margin-bottom: 5px; }
+.education-item p { margin: 0; color: #75685D; font-size: .9rem; }
+.education-date { color: var(--taupe); font-size: .8rem; white-space: nowrap; }
+.academic-block { margin-top: 34px; }
+.academic-block h3 { font-size: 1.45rem; }
+.achievement-list { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 0; padding: 0; list-style: none; }
+.achievement-list span { font-weight: 700; }
+.skill-list { display: flex; flex-wrap: wrap; gap: 12px; }
+.skill-list span { padding: 12px 17px; border: 1px solid #CDBEAD; font-size: .88rem; }
+
+/* 5. Contact and footer */
+.contact-section { padding-top: 100px; padding-bottom: 100px; text-align: center; background: var(--beige); }
+.contact-section h2 { max-width: 720px; margin: 0 auto 18px; }
+.contact-section > p:not(.eyebrow) { color: #75685D; }
+.email-link { display: inline-block; margin-top: 16px; color: var(--brown); text-decoration-color: var(--taupe); text-underline-offset: 6px; }
+.site-footer { width: min(1080px, calc(100% - 48px)); margin: auto; padding: 25px 0; display: flex; justify-content: space-between; gap: 16px; font-size: .78rem; }
+.site-footer p { margin: 0; }
+.site-footer a { text-decoration: none; }
+
+/* 6. Printable resume preview */
+.resume-area { padding-top: 72px; padding-bottom: 72px; }
+.resume-download { margin-bottom: 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.resume-download h2 { font-size: 2.2rem; }
+#resume {
+  max-width: 800px;
+  margin: auto;
+  padding: 46px 54px;
+  background: var(--white);
+  color: #222222;
+  box-shadow: 0 10px 40px #493C3212;
+  font-family: Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.35;
+}
+.resume-top { padding-bottom: 13px; border-bottom: 2px solid #493C32; }
+.resume-top h1 { margin: 0 0 3px; font-family: Arial, sans-serif; font-size: 26pt; }
+.resume-top p { margin: 0 0 4px; font-size: 10pt; }
+.resume-top a { font-size: 9pt; }
+.resume-profile { margin: 14px 0; }
+.resume-section { margin-top: 15px; }
+.resume-section h2 { margin: 0 0 8px; padding-bottom: 4px; border-bottom: 1px solid #A88D70; font-family: Arial, sans-serif; font-size: 12pt; }
+.resume-entry { margin: 8px 0; }
+.resume-entry h3 { margin: 0 0 3px; font-family: Arial, sans-serif; font-size: 10pt; font-weight: 700; }
+.resume-entry p, .resume-section > p { margin: 3px 0; }
+.resume-entry ul { margin: 3px 0 0; padding-left: 17px; }
+.resume-entry li { margin: 2px 0; }
+.resume-honours { font-size: 9pt; }
+
+/* 7. Mobile layout */
+@media (max-width: 700px) {
+  .section-wrap, .site-header, .site-footer { width: min(100% - 32px, 540px); }
+  .site-header { padding: 16px 0; align-items: flex-start; }
+  nav { justify-content: flex-end; flex-wrap: wrap; gap: 10px 16px; }
+  nav a { font-size: .74rem; }
+  .hero { min-height: 520px; padding-top: 75px; }
+  .hero h1 { font-size: clamp(3.8rem, 17vw, 6rem); }
+  .hero-actions { flex-direction: column; width: min(100%, 320px); }
+  .scroll-link { margin-top: 54px; }
+  .section-block { padding-top: 58px; padding-bottom: 58px; }
+  .project-card, .experience-grid { grid-template-columns: 1fr; gap: 24px; }
+  .project-image { max-width: 440px; }
+  .experience-card { padding: 24px; }
+  .education-item { align-items: flex-start; }
+  .contact-section { padding-top: 72px; padding-bottom: 72px; }
+  .resume-download { align-items: flex-start; flex-direction: column; }
+  #resume { padding: 28px 24px; }
+  .site-footer { flex-wrap: wrap; }
+}
+
+/* 8. A4 print output: print only the resume */
+@page { size: A4; margin: 12mm; }
+@media print {
+  body { background: #FFFFFF !important; }
+  body * { visibility: hidden !important; }
+  #resume, #resume * { visibility: visible !important; }
+  #resume {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    color: #000000;
+    font-size: 8.4pt;
+    line-height: 1.18;
+  }
+  #resume .resume-section { margin-top: 10px; }
+  #resume .resume-entry { margin: 5px 0; }
+  #resume .resume-entry li { margin: 1px 0; }
+}
+
